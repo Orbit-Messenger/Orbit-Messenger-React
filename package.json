@@ -3,13 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@material-ui/core": "^4.11.0",
+=======
+>>>>>>> d04d96caa0ad816684d99dba9f7bc79d2d6eaff6
     "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+<<<<<<< HEAD
     "fontsource-bangers": "^3.0.9",
     "fontsource-press-start-2p": "^3.0.9",
+=======
+    "axios": "^0.20.0",
+    "fontsource-roboto": "^3.0.3",
+>>>>>>> d04d96caa0ad816684d99dba9f7bc79d2d6eaff6
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
@@ -36,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@material-ui/core": "^4.11.0",
+    "react-router-dom": "^5.2.0"
   }
 }
