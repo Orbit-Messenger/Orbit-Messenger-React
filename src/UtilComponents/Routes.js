@@ -1,16 +1,8 @@
 import {Route, Switch, useParams} from "react-router-dom";
 import Home from "../Home/Home";
-import Blog from "../Blog/Blog";
-import Projects from "../Projects/Projects";
-import About from "../About/About";
 import React from "react";
-import Articles from "../Art/Articles/Articles";
 import Login from "../Admin/Login";
-import Writer from "./Writer";
-import BlogSection from "../Blog/BlogSection";
-import ArticleSection from "../Art/Articles/ArticleSection";
 import {siteApiUrls, StatusTypes} from "../Api";
-import Admin from "../Admin/Admin";
 
 /**
  * Route component does all the routing for the single page application.
@@ -83,51 +75,46 @@ class Routes extends React.Component{
     return (
         <Switch>
             {/*Basic routes*/}
-            <Route path={"/blog"}><Blog/></Route>
-            <Route path={"/projects"}><Projects/></Route>
-            <Route path={"/about"}><About/></Route>
-            <Route path={"/logout"}><Logout/></Route>
 
             {/* blogWriter is used to write blog posts */}
-            <PrivateRoute path={"/blogWriter"}
-                          component={<Writer url={siteApiUrls.addPost} component={BlogSection}/>}
-                          loginPermission={this.state.loginPermission}
-            />
+            {/*<PrivateRoute path={"/blogWriter"}*/}
+            {/*              component={<Writer url={siteApiUrls.addPost} component={BlogSection}/>}*/}
+            {/*              loginPermission={this.state.loginPermission}*/}
+            {/*/>*/}
 
-            {/* articleWriter is used to write articles */}
-            <PrivateRoute path={"/articleWriter"}
-                          component={<Writer url={siteApiUrls.addArticle} component={ArticleSection}/>}
-                          loginPermission={this.state.loginPermission}
-            />
+            {/*/!* articleWriter is used to write articles *!/*/}
+            {/*<PrivateRoute path={"/articleWriter"}*/}
+            {/*              component={<Writer url={siteApiUrls.addArticle} component={ArticleSection}/>}*/}
+            {/*              loginPermission={this.state.loginPermission}*/}
+            {/*/>*/}
 
-            {/* updateArticle is used to update articles */}
-            <PrivateRoute path={"/updateArticle/:id"}
-                          component={
-                              <InjectDataToWriter
-                                  getData={siteApiUrls.getArticle}
-                                  url={siteApiUrls.updateArticle}
-                              />}
-                          loginPermission={this.state.loginPermission}
-            />
+            {/*/!* updateArticle is used to update articles *!/*/}
+            {/*<PrivateRoute path={"/updateArticle/:id"}*/}
+            {/*              component={*/}
+            {/*                  <InjectDataToWriter*/}
+            {/*                      getData={siteApiUrls.getArticle}*/}
+            {/*                      url={siteApiUrls.updateArticle}*/}
+            {/*                  />}*/}
+            {/*              loginPermission={this.state.loginPermission}*/}
+            {/*/>*/}
 
-            <PrivateRoute path={"/updateBlog/:id"}
-                          component={
-                              <InjectDataToWriter
-                                  getData={siteApiUrls.getPost}
-                                  url={siteApiUrls.updateBlog}
-                              />}
-                          loginPermission={this.state.loginPermission}
-            />
+            {/*<PrivateRoute path={"/updateBlog/:id"}*/}
+            {/*              component={*/}
+            {/*                  <InjectDataToWriter*/}
+            {/*                      getData={siteApiUrls.getPost}*/}
+            {/*                      url={siteApiUrls.updateBlog}*/}
+            {/*                  />}*/}
+            {/*              loginPermission={this.state.loginPermission}*/}
+            {/*/>*/}
 
-            <PrivateRoute path={"/admin"}
-                          component={
-                              <Admin/>
-                          }
-                          loginPermission={this.state.loginPermission}
-            />
+            {/*<PrivateRoute path={"/admin"}*/}
+            {/*              component={*/}
+            {/*                  <Admin/>*/}
+            {/*              }*/}
+            {/*              loginPermission={this.state.loginPermission}*/}
+            {/*/>*/}
 
-            <Route path={"/articles"}><Articles/></Route>
-            <Route path={"/login"}><Login/></Route>
+            {/*<Route path={"/login"}><Login/></Route>*/}
             <Route path={"/"}><Home/></Route>
         </Switch>
     );
@@ -163,22 +150,6 @@ function Logout(){
 }
 
 
-/**
- * InjectDataToWriter component opens a writer with a certain urls
- * @param props
- * @returns {JSX.Element}
- * @constructor
- */
-function InjectDataToWriter(props){
-    let { id } = useParams();
-    return(
-        <Writer
-            getData={props.getData + id}
-            url={props.url + id}
-            component={ArticleSection}
-        />
-    )
-}
 
 export default Routes;
 
